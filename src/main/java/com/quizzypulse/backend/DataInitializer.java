@@ -12,8 +12,20 @@ import java.util.List;
 public class DataInitializer {
 
     @Bean
-    public CommandLineRunner loadData(QuestionRepository repository) {
+    public CommandLineRunner loadData(QuestionRepository repository, 
+                                      com.quizzypulse.backend.repository.UserRepository userRepository,
+                                      org.springframework.security.crypto.password.PasswordEncoder passwordEncoder) {
         return args -> {
+            // Seed Admin User
+            if (userRepository.findByUsername("admin") == null) {
+                com.quizzypulse.backend.entity.User admin = new com.quizzypulse.backend.entity.User(
+                    "admin", 
+                    passwordEncoder.encode("admin"), 
+                    java.util.Collections.singleton("ROLE_ADMIN")
+                );
+                userRepository.save(admin);
+                System.out.println("Admin user created (admin/admin)");
+            }
             List<Question> questions = List.of(
                 // HTML Questions
                 new Question(
