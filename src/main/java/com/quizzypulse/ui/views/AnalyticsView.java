@@ -6,8 +6,7 @@ import com.quizzypulse.backend.repository.AttemptRepository;
 import com.quizzypulse.backend.repository.QuizResultRepository;
 import com.quizzypulse.backend.service.UserService;
 import com.quizzypulse.ui.MainLayout;
-import com.vaadin.flow.component.charts.Chart;
-import com.vaadin.flow.component.charts.model.*;
+
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
@@ -68,13 +67,7 @@ public class AnalyticsView extends VerticalLayout {
             createStatCard("Games Played", String.valueOf(currentUser.getTotalGamesPlayed()), "🎮")
         );
         
-        // Performance Chart
-        Chart performanceChart = createPerformanceChart();
-        
-        // Category Chart
-        Chart categoryChart = createCategoryChart();
-        
-        add(title, statsLayout, new H3("Performance Over Time"), performanceChart, new H3("Strength by Topic"), categoryChart);
+        add(title, statsLayout);
     }
     
     private Div createStatCard(String label, String value, String icon) {
@@ -100,68 +93,5 @@ public class AnalyticsView extends VerticalLayout {
         return card;
     }
     
-    private Chart createCategoryChart() {
-        Chart chart = new Chart(ChartType.COLUMN);
-        Configuration conf = chart.getConfiguration();
-        conf.setTitle("Accuracy by Category");
-        
-        XAxis xAxis = conf.getxAxis();
-        YAxis yAxis = conf.getyAxis();
-        yAxis.setTitle("Accuracy (%)");
-        yAxis.setMax(100);
-        
-        List<Object[]> stats = attemptRepository.findCategoryStats(currentUser.getId());
-        
-        ListSeries accuracySeries = new ListSeries("Accuracy");
-        List<String> categories = new ArrayList<>();
-        
-        for (Object[] row : stats) {
-            String category = (String) row[0];
-            Long total = (Long) row[1];
-            Long correct = (Long) row[2];
-            
-            double accuracy = (total > 0) ? (correct.doubleValue() / total.doubleValue()) * 100.0 : 0.0;
-            
-            categories.add(category);
-            accuracySeries.addData(Math.round(accuracy * 100.0) / 100.0);
-        }
-        
-        xAxis.setCategories(categories.toArray(new String[0]));
-        conf.addSeries(accuracySeries);
-        
-        return chart;
-    }
-
-    private Chart createPerformanceChart() {
-        Chart chart = new Chart(ChartType.LINE);
-        
-        Configuration conf = chart.getConfiguration();
-        conf.setTitle("Quiz Performance");
-        conf.getLegend().setEnabled(false);
-        
-        XAxis xAxis = conf.getxAxis();
-        xAxis.setTitle("Quiz Number");
-        
-        YAxis yAxis = conf.getyAxis();
-        yAxis.setTitle("Score");
-        
-        // Get user's quiz results
-        List<QuizResult> results = quizResultRepository.findByUserIdOrderByPlayedAtDesc(currentUser.getId());
-        
-        ListSeries series = new ListSeries("Performance");
-        if (results.isEmpty()) {
-            // Sample data if no results
-            series.setData(0, 0, 0);
-        } else {
-            Number[] scores = results.stream()
-                .limit(10)
-                .map(QuizResult::getScore)
-                .toArray(Number[]::new);
-            series.setData(scores);
-        }
-        
-        conf.addSeries(series);
-        
-        return chart;
-    }
+    // Charts removed due to Vaadin Pro license requirement.
 }
