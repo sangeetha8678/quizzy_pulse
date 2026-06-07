@@ -1,0 +1,55 @@
+.dashboard-view {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient background */
+.dashboard-view::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg,
+            rgba(var(--lumo-primary-color-50pct), 0.1),
+            rgba(var(--lumo-primary-color-10pct), 0.05),
+            rgba(var(--lumo-success-color-50pct), 0.1),
+            rgba(var(--lumo-primary-color-10pct), 0.05));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating particles effect */
+.animated-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Button hover effects */
+.dashboard-view vaadin-button {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-view vaadin-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

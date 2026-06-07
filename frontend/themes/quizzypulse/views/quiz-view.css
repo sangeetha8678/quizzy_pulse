@@ -1,0 +1,39 @@
+.quiz-view {
+    padding: var(--lumo-space-l);
+    background-color: var(--lumo-contrast-5pct);
+}
+
+.quiz-view h2 {
+    margin-bottom: var(--lumo-space-xl);
+    color: var(--lumo-primary-text-color);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--lumo-space-m);
+    margin-top: var(--lumo-space-l);
+}
+
+.option-btn {
+    height: 80px;
+    font-size: var(--lumo-font-size-l);
+    border-radius: var(--lumo-border-radius-l);
+    box-shadow: var(--lumo-box-shadow-xs);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--lumo-box-shadow-m);
+}
+
+/* Badge style for stats */
+span[theme~="badge"] {
+    font-size: var(--lumo-font-size-m);
+    padding: var(--lumo-space-s) var(--lumo-space-m);
+    border-radius: var(--lumo-border-radius-m);
+    background-color: var(--lumo-primary-color);
+    color: var(--lumo-primary-contrast-color);
+    box-shadow: var(--lumo-box-shadow-s);
+}

@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\sange\\.gemini\\antigravity\\scratch\\QuizzyPulse\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\sange\\.gemini\\antigravity\\scratch\\QuizzyPulse\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/target/dev-bundle/config",
+  "jarResourcesFolder": "C:/Users/sange/.gemini/antigravity/scratch/QuizzyPulse/frontend/generated/jar-resources",
+  "themeName": "quizzypulse",
+  "clientServiceWorkerSource": "C:\\Users\\sange\\.gemini\\antigravity\\scratch\\QuizzyPulse\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
