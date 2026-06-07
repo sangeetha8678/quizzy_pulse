@@ -1,3 +1,0 @@
-import{O as e,I as i,_ as o,h as a}from"./indexhtml-CQmGH-e5.js";const d={tagName:"vaadin-accordion-heading",displayName:"Accordion Heading",description:a`You are trying to style selected heading only, if you wish to style all panel headings of given
-    accordion please pick <code>vaadin-accordion</code> instead.`,notAccessibleDescription:a`If you wish to style all panel headings of current accordion please pick
-    <code>vaadin-accordion</code> instead.`,elements:[{selector:"vaadin-accordion-heading",displayName:"Heading",properties:[e.textColor,e.fontSize,i.padding]},{selector:"vaadin-accordion-heading::part(toggle)",displayName:"Toggle",properties:[o.iconColor,o.iconSize]}]};export{d as default};
